@@ -42,5 +42,5 @@ resource "aws_api_gateway_integration" "gateway_integration" {
 resource "aws_api_gateway_deployment" "deployment" {
   depends_on  = [aws_api_gateway_integration.gateway_integration]
   rest_api_id = aws_api_gateway_rest_api.fastfood_api.id
-  # stage_name  = "$default"
+  stage_name  = "dev"
 }
