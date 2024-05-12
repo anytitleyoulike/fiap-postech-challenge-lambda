@@ -1,4 +1,4 @@
 provider "aws" {
-  profile = "terraform"
+  profile = "default"
   region  = var.regionDefault
 }
