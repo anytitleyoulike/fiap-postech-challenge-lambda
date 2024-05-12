@@ -9,3 +9,7 @@ variable "labRole" {
 variable "principalArn" {
   default = "arn:aws:iam::914774164844:role/voclabs"
 }
+
+variable "projectName" {
+  default = "fastfood"
+}

@@ -1,6 +1,6 @@
 resource "aws_lambda_function" "lambda" {
   role          = var.labRole
-  function_name = "auth"
+  function_name = "${var.projectName}-lambda"
   filename      = "lambda.zip"
   handler       = "handler.lambda_handler"
   runtime       = "python3.12"
