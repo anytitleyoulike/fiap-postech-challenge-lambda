@@ -1,5 +1,5 @@
 resource "aws_api_gateway_rest_api" "fastfood_api" {
-  name        = "auth-postech"
+  name        = "fastfood-auth"
   description = "Postech challenge FIAP FastFood"
 }
 
@@ -28,7 +28,7 @@ resource "aws_api_gateway_method" "api_method" {
 #     "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
 #     "method.response.header.Access-Control-Allow-Origin"  = "'*'"
 #   }
-}
+# }
 
 resource "aws_api_gateway_integration" "gateway_integration" {
   rest_api_id             = aws_api_gateway_rest_api.fastfood_api.id
@@ -42,5 +42,5 @@ resource "aws_api_gateway_integration" "gateway_integration" {
 resource "aws_api_gateway_deployment" "deployment" {
   depends_on  = [aws_api_gateway_integration.gateway_integration]
   rest_api_id = aws_api_gateway_rest_api.fastfood_api.id
-  stage_name  = "$default"
+  # stage_name  = "$default"
 }
