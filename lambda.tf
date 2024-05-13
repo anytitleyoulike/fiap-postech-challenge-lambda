@@ -1,9 +1,18 @@
 resource "aws_lambda_function" "lambda" {
   role          = var.labRole
-  function_name = "${var.projectName}-lambda"
+  function_name = "authentication"
   filename      = "lambda.zip"
   handler       = "handler.lambda_handler"
   runtime       = "python3.12"
+}
+
+resource "aws_lambda_permission" "example_lambda_permission" {
+  statement_id  = "AllowAPIGatewayInvoke"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.lambda.function_name
+  principal     = "apigateway.amazonaws.com"
+
+  source_arn = "${aws_api_gateway_rest_api.fastfood_api.execution_arn}/*/*"
 }
 
 # # IAM
