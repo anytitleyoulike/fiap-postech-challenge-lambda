@@ -4,6 +4,7 @@ resource "aws_lambda_function" "lambda" {
   filename      = "lambda.zip"
   handler       = "handler.lambda_handler"
   runtime       = "python3.12"
+  description   = "Function to authenticate users"
 }
 
 resource "aws_lambda_permission" "example_lambda_permission" {

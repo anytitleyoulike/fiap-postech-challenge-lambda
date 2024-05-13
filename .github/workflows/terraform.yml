@@ -2,9 +2,9 @@ name: "Terraform"
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
+    branches: [ "main" ]
+permissions:
+  contents: read
 env:
   TF_LOG: INFO
 

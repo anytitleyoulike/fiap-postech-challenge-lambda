@@ -1,5 +1,5 @@
 resource "aws_cognito_user_pool" "user_pool" {
-  name = "example-user-pool"
+  name = "${var.projectName}-user-pool"
 
   #username_attributes = ["email"]
 
