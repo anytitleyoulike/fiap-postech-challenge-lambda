@@ -3,7 +3,7 @@ import boto3
 
 client = boto3.client('cognito-idp', 'us-east-1')
 def lambda_handler(event, context):
-    username = event['email']
+    username = event['username']
     password = event['password']
     try: 
         response = client.initiate_auth(
@@ -16,11 +16,8 @@ def lambda_handler(event, context):
             )
         
         return {
-            'status': 200,
-            'body': {
-                'message': 'Login successful!',
-                'session': response['Session']
-            }
+            'message': 'Login successful!',
+            'session': response['Session']
         }
     except client.exceptions.NotAuthorizedException:
         return {'Error': 'Invalid username or password'}
